@@ -1,10 +1,10 @@
-<!-- email_app/templates/home.html -->
+<!-- email_app/templates/verify_otp.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Send OTP</title>
+    <title>Verify OTP</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -30,12 +30,13 @@
         flex-direction: column;
         align-items: center;
       }
-      input[type="email"] {
+      input[type="text"] {
         padding: 10px;
         margin-bottom: 20px;
         width: 100%;
         border: 1px solid #ccc;
         border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
       .btn {
         display: inline-block;
@@ -50,7 +51,7 @@
         border: none;
         border-radius: 15px;
         box-shadow: 0 9px #999;
-        transition: background-color 0.3s;
+        transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
       }
       .btn:hover {
         background-color: #3e8e41;
@@ -60,21 +61,27 @@
         box-shadow: 0 5px #666;
         transform: translateY(4px);
       }
+      .error {
+        color: red;
+      }
     </style>
   </head>
   <body>
     <div class="container">
-      <h1>Enter your email to receive OTP</h1>
-      <form method="post" action="{% url 'home' %}">
+      <h1>Enter the OTP sent to your email</h1>
+      <form method="post" action="">
         {% csrf_token %}
         <input
-          type="email"
-          name="email"
+          type="text"
+          name="otp"
           required
-          placeholder="Enter your email"
+          placeholder="Enter your OTP here"
         />
-        <button type="submit" class="btn">Send OTP</button>
+        <button type="submit" class="btn">Verify OTP</button>
       </form>
+      {% if error %}
+      <p class="error">{{ error }}</p>
+      {% endif %}
     </div>
   </body>
 </html>

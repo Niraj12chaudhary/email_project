@@ -1,14 +1,30 @@
 <!-- email_app/templates/success.html -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Email Sent</title>
+    <title>Success</title>
+    <style>
+      /* Custom styles */
+      .container {
+        margin-top: 50px;
+        text-align: center;
+      }
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+    </style>
   </head>
   <body>
-    <h1>Email Sent Successfully!</h1>
-    <a href="/">Go back</a>
+    <div class="container">
+      <h1>Email Verified Successfully!</h1>
+      <a href="/" class="btn">Go back</a>
+    </div>
   </body>
 </html>
